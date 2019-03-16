@@ -1,0 +1,246 @@
+add feature "Configuration Assistant"
+with attributes (
+  _parent = "Computer",
+  _decomp = mandatory);
+
+
+add feature "Pricing - Ultra"
+with attributes (
+  _parent = "Configuration Assistant",
+  _decomp = alternative,
+  priceCategory = numeric : 5);
+
+add feature "Pricing - High"
+with attributes (
+  _parent = "Configuration Assistant",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 4);
+
+add feature "Pricing - Mid"
+with attributes (
+  _parent = "Configuration Assistant",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 3);
+
+add feature "Pricing - Low"
+with attributes (
+  _parent = "Configuration Assistant",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 2);
+
+add feature "Pricing - Basic"
+with attributes (
+  _parent = "Configuration Assistant",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 1);
+
+
+updateall feature F
+set _parent = "Pricing - Ultra"
+where F.priceCat = 5;
+
+updateall feature F
+set _parent = "Pricing - High"
+where F.priceCat = 4;
+
+updateall feature F
+set _parent = "Pricing - Mid"
+where F.priceCat = 3;
+
+updateall feature F
+set _parent = "Pricing - Low"
+where F.priceCat = 2;
+
+updateall feature F
+set _parent = "Pricing - Basic"
+where F.priceCat = 1;
+
+updateall feature F
+set _decomp = alternative to "Xeon E5-2699 v4"
+where F.priceCat = 5
+ and  F.hw = "CPU";
+
+updateall feature F
+set _decomp = alternative to "i7-7820X"
+where F.priceCat = 4
+ and  F.hw = "CPU";
+
+updateall feature F
+set _decomp = alternative to "i7-7800X"
+where F.priceCat = 3
+ and  F.hw = "CPU";
+
+updateall feature F
+set _decomp = alternative to "i5-7600K"
+where F.priceCat = 2
+ and  F.hw = "CPU";
+
+updateall feature F
+set _decomp = alternative to "i5-7500T"
+where F.priceCat = 1
+ and  F.hw = "CPU";
+
+
+updateall feature F
+set _decomp = alternative to "MSI Nvidia GeForce GTX 1080 Ti Founders"
+where F.priceCat = 5
+ and  F.hw = "Graphics";
+
+updateall feature F
+set _decomp = alternative to "MSI Nvidia GeForce GTX 1070 Gaming X"
+where F.priceCat = 4
+ and  F.hw = "Graphics";
+
+updateall feature F
+set _decomp = alternative to "MSI Nvidia GeForce GTX 1060 Gaming X+"
+where F.priceCat = 3
+ and  F.hw = "Graphics";
+
+updateall feature F
+set _decomp = alternative to "MSI Nvidia GeForce GTX 1060 Aero ITX"
+where F.priceCat = 2
+ and  F.hw = "Graphics";
+
+updateall feature F
+set _decomp = alternative to "MSI Nvidia GeForce GTX 1050 2GT LP"
+where F.priceCat = 1
+ and  F.hw = "Graphics";
+
+
+updateall feature F
+set _decomp = alternative to "Kingston HX430C15PB3K2/32"
+where F.priceCat = 5
+ and  F.hw = "RAM";
+
+updateall feature F
+set _decomp = alternative to "Kingston HX426C13SB2K2/16"
+where F.priceCat = 4
+ and  F.hw = "RAM";
+
+updateall feature F
+set _decomp = alternative to "Kingston KVR21S15D8/16"
+where F.priceCat = 3
+ and  F.hw = "RAM";
+
+updateall feature F
+set _decomp = alternative to "Kingston KVR21S15S8/8"
+where F.priceCat = 2
+ and  F.hw = "RAM";
+
+updateall feature F
+set _decomp = alternative to "Kingston HX316C10F/4"
+where F.priceCat = 1
+ and  F.hw = "RAM";
+
+
+updateall feature F
+set _decomp = or to "Seagate ST8000NE0001"
+where F.priceCat = 5
+ and  F.hw = "Storage";
+
+updateall feature F
+set _decomp = or to "Seagate ST6000VX0023"
+where F.priceCat = 4
+ and  F.hw = "Storage";
+
+updateall feature F
+set _decomp = or to "Seagate ST3000DM008"
+where F.priceCat = 3
+ and  F.hw = "Storage";
+
+updateall feature F
+set _decomp = or to "Seagate ST1000VN000"
+where F.priceCat = 2
+ and  F.hw = "Storage";
+
+updateall feature F
+set _decomp = or to "Seagate ST3160316CS"
+where F.priceCat = 1
+ and  F.hw = "Storage";
+
+
+updateall feature F
+set _decomp = alternative to "ASUS Maximus VIII Extreme Assembly Intel Z170"
+where F.priceCat = 5
+ and  F.hw = "Motherboard";
+
+updateall feature F
+set _decomp = alternative to "ASUS ROG Strix X99 Gaming Intel X99"
+where F.priceCat = 4
+ and  F.hw = "Motherboard";
+
+updateall feature F
+set _decomp = alternative to "ASUS Strix Z270E Gaming Intel Z270"
+where F.priceCat = 3
+ and  F.hw = "Motherboard";
+
+updateall feature F
+set _decomp = alternative to "ASUS Z170-P D3 Intel Z170"
+where F.priceCat = 2
+ and  F.hw = "Motherboard";
+
+updateall feature F
+set _decomp = alternative to "ASUS H110M-A/DP Intel H110"
+where F.priceCat = 1
+ and  F.hw = "Motherboard";
+
+
+updateall feature F
+set _decomp = alternative to "Creative Sound Blaster 16 PCI"
+where F.priceCat = 5
+ and  F.hw = "Sound";
+
+updateall feature F
+set _decomp = alternative to "Creative Sound Blaster Play!"
+where F.priceCat = 4
+ and  F.hw = "Sound";
+
+updateall feature F
+set _decomp = alternative to "Creative Sound Blaster Z PCIE"
+where F.priceCat = 3
+ and  F.hw = "Sound";
+
+updateall feature F
+set _decomp = alternative to "Creative Sound Blaster X-Fi Go! Pro"
+where F.priceCat = 2
+ and  F.hw = "Sound";
+
+updateall feature F
+set _decomp = alternative to "Creative Sound Blaster Live! CT4780 5.1"
+where F.priceCat = 1
+ and  F.hw = "Sound";
+ 
+
+updateall feature F
+set _decomp = alternative to "ASUS PA329Q"
+where F.priceCat = 5
+ and  F.hw = "Monitor";
+
+updateall feature F
+set _decomp = alternative to "ASUS PB328Q"
+where F.priceCat = 4
+ and  F.hw = "Monitor";
+
+updateall feature F
+set _decomp = alternative to "ASUS MG27UQ"
+where F.priceCat = 3
+ and  F.hw = "Monitor";
+
+updateall feature F
+set _decomp = alternative to "ASUS VP279H"
+where F.priceCat = 2
+ and  F.hw = "Monitor";
+
+updateall feature F
+set _decomp = alternative to "ASUS VP228HE"
+where F.priceCat = 1
+ and  F.hw = "Monitor";
+ 
+
+remove feature "CPU";
+remove feature "Graphics";
+remove feature "RAM";
+remove feature "Storage";
+remove feature "Motherboard";
+remove feature "Sound";
+remove feature "Monitor";

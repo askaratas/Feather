@@ -1,0 +1,90 @@
+add feature "Configuration Assistant"
+with attributes (
+  _parent = "Computer",
+  _decomp = optional);
+
+
+add feature "CA - Pricing"
+with attributes (
+  _parent = "Configuration Assistant",
+  _decomp = optional);
+
+add feature "CA - Performance"
+with attributes (
+  _parent = "Configuration Assistant",
+  _decomp = optional);
+
+
+add feature "Pricing - Ultra"
+with attributes (
+  _parent = "CA - Pricing",
+  _decomp = alternative,
+  priceCategory = numeric : 5);
+
+add feature "Pricing - High"
+with attributes (
+  _parent = "CA - Pricing",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 4);
+
+add feature "Pricing - Mid"
+with attributes (
+  _parent = "CA - Pricing",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 3);
+
+add feature "Pricing - Low"
+with attributes (
+  _parent = "CA - Pricing",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 2);
+
+add feature "Pricing - Basic"
+with attributes (
+  _parent = "CA - Pricing",
+  _decomp = alternative to "Pricing - Ultra",
+  priceCategory = numeric : 1);
+
+
+add feature "Performance - Ultra"
+with attributes (
+  _parent = "CA - Performance",
+  _decomp = alternative,
+  perfMax = numeric : 200,
+  perfMin = numeric : 80);
+
+add feature "Performance - High"
+with attributes (
+  _parent = "CA - Performance",
+  _decomp = alternative to "Performance - Ultra",
+  perfMax = numeric : 79,
+  perfMin = numeric : 60);
+
+add feature "Performance - Mid"
+with attributes (
+  _parent = "CA - Performance",
+  _decomp = alternative to "Performance - Ultra",
+  perfMax = numeric : 59,
+  perfMin = numeric : 40);
+
+add feature "Performance - Low"
+with attributes (
+  _parent = "CA - Performance",
+  _decomp = alternative to "Performance - Ultra",
+  perfMax = numeric : 39,
+  perfMin = numeric : 20);
+
+add feature "Performance - Basic"
+with attributes (
+  _parent = "CA - Performance",
+  _decomp = alternative to "Performance - Ultra",
+  perfMax = numeric : 19,
+  perfMin = numeric : 0);
+
+
+add constraint F excludes G
+where F.priceCategory <> G.priceCat;
+
+add constraint F excludes G
+where G.rating > F.perfMax
+ or   G.rating < F.perfMin;
